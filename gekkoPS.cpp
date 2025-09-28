@@ -11,7 +11,7 @@
 *	INSTALLATION
 *	------------
 *
-*	Place the processor extension modules (gekkoPS.plw) within your IDA Pro 'plugins' directory.
+*	Place the processor extension modules (gekkoPS.dll) within your IDA Pro 'plugins' directory.
 *	By default the plugin is active when dealing with PPC code, but you can disable/re-enable the
 *	plugin by using the entry in the Edit/Plugins menu. If you want the plugin to be disabled on
 *	load, you will have to edit this source code. Change the value of g_HookState to 'kDisabled'
@@ -23,11 +23,14 @@
 *
 *	2007.12.22	HyperIris	V1.0	Created, base on Dean's PowerPC Altivec/VMX Extension Module
 *									Support IDA Pro 5.2
-*
+* 
+*	2018.04.25	HyperIris	V1.1	Updated to support IDA 7.0, change from .plw to .dll
+* 
+*   2025.09.28	luxploit	V1.2	Updated to IDA 9.1
 *
 ***************************************************************************************************/
 
-#define	GEKKO_VERSION	"2018.04.25"
+#define	GEKKO_VERSION	"2025.09.28"
 
 // SDK 4.8's "pro.h" (line 718) has a signed/unsigned mismatch, so we disable this warning..
 //#pragma warning( disable:4018 )
@@ -571,9 +574,9 @@ static ssize_t idaapi PluginExtensionCallback(void * user_data, int notification
 *
 ***************************************************************************************************/
 
-int	PluginStartup(void)
+plugmod_t* PluginStartup(void)
 {
-	if (ph.id != PLFM_PPC)
+	if (PH.id != PLFM_PPC)
 		return PLUGIN_SKIP;
 
 	//inf.s_cmtflg |= SW_ALLCMT;
@@ -598,7 +601,7 @@ int	PluginStartup(void)
 	{
 		hook_to_notification_point(HT_IDP, PluginExtensionCallback, NULL);
 		msg("Nintendo GameCube Gekko CPU Extension " GEKKO_VERSION " is enabled\n");
-		msg("This plug-in was created by HyperIris (fsstudio@263.net)\n");
+		msg("This plug-in was created by HyperIris (fsstudio@263.net) and updated by luxploit (laura@luxploit.net)\n");
 		return PLUGIN_KEEP;
 	}
 

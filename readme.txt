@@ -1,8 +1,9 @@
-Nintendo GameCube Gekko CPU Extension plug-in for IDA Pro 5.2
+Nintendo GameCube Gekko CPU Extension plug-in for IDA Pro 9.1
 
-*  (C) Copyright 2007 by HyperIris (fsstudio at 263.net)
+*  (C) Copyright 2007 by HyperIris <fsstudio@263.net>
+*  (C) Copyright 2025 by luxploit <laura@luxploit.net>
 
-This is a Gekko CPU Paired Single extension instructions plug-in for IDA Pro 5.2
+This is a Gekko CPU Paired Single extension instructions plug-in for IDA Pro 9.1
 
 ------------------------------------------------------------------------------------
 
@@ -11,13 +12,11 @@ Use it as your wish.
 
 Certainly, it's free for use, but if you distribute it please keep this readme file.
 
-BTW, source is messy, but...I choose open them. may be useful for you.
-
 ------------------------------------------------------------------------------------
 
 Installation
 
-Copy gekkoPS.plw to $IDA_ROOT\plugins
+Copy gekkoPS.dll to $IDA_ROOT\plugins
 
 That's all, but you need of course PPC support in your version of IDA, hehe.
 
@@ -34,24 +33,21 @@ check <Auto comments> will show Paired Single instructions explain.
 
 Build
 
-If you modify the code and add some useful functions, plz tell me, thanks.
+You need Visual Studio 2022 (edition does not matter) 
+and a copy of the IDA 9.1 Pro SDK.
 
-To build these plug-ins:
-
-There are VC++ 2005 projects, I use pro, may be express works too. 
-You also need IDA pro SDK.
+The SDK location needs to be set via an environment variable called IDASDK_DIR, for
+example as "A:\idasdk91"
 
 ------------------------------------------------------------------------------------
 
 Contact
 
-You can find me at <fsstudio at 263.net> or sometimes in irc channel: 
+HyperIris:
+  You can find me at <fsstudio@263.net> or sometimes in irc channel: 
+  #pcsx2 | #dolphin-emu | #gcdev | #wiidev at efnet
 
-#pcsx2 | #dolphin-emu | #gcdev | #wiidev at efnet
+luxploit:
+  E-Mail me at <laura@luxploit.net> or message me on Discord <@luxploit.net>
 
 ------------------------------------------------------------------------------------
-
-HyperIris 2009.01.09
-sorry for my poor english.
-
-end of file.
